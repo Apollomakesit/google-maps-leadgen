@@ -18,7 +18,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --user -r requirements.txt
 
 # Build google-maps-scraper binary (rod) for API-keyless scraping
-FROM golang:1.25.6-trixie AS scraper-builder
+FROM golang:1.26-trixie AS scraper-builder
 
 RUN go install -tags rod github.com/gosom/google-maps-scraper@latest \
     && go run github.com/go-rod/rod/lib/utils/get-browser@latest
